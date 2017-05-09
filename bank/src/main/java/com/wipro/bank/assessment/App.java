@@ -13,12 +13,20 @@ public class App
 	
 	public Account getAccountDetailsByID(int id)
 	{
-		for(Account acc:accounts)
-			if(acc!=null)
-				if(acc.getAccountID() == id)
-					return acc;
-		
-		return null;
+		Iterator<Account> iterator = accounts.iterator();
+		Account acc = null;
+		while(iterator.hasNext())
+		{	
+			acc = iterator.next();
+			if(acc.getAccountID() == id)
+			{
+				return acc;
+			}
+			
+		}
+		return acc;
+			
+			
 	}
 	
 	public List<Account> getAccountDetailsByBalance(double amount)
@@ -35,8 +43,8 @@ public class App
 				return accounts;
 			}
 		}
-			
 		return null;
+		
 	}
 	
   }

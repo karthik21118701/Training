@@ -14,7 +14,7 @@ public class Account {
 		this.accountID = accountID;
 		this.userName = userName;
 		this.balance = balance;
-	}
+			}
 	
 	public int getAccountID() {
 		return accountID;
