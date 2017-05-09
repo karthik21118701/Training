@@ -1,6 +1,7 @@
 package com.wipro.bank.assessment;
 
 import java.util.*;
+
 import com.wipro.bank.entity.*;
 
 /**
@@ -13,8 +14,8 @@ public class App
 	
 	public Account getAccountDetailsByID(int id)
 	{
-		Iterator<Account> iterator = accounts.iterator();
 		Account acc = null;
+		Iterator<Account> iterator = accounts.iterator();
 		while(iterator.hasNext())
 		{	
 			acc = iterator.next();
@@ -22,9 +23,10 @@ public class App
 			{
 				return acc;
 			}
+			else
+				acc=null;
 			
-		}
-		return acc;
+		}return acc;
 			
 			
 	}
@@ -34,17 +36,34 @@ public class App
 		/*for(Account acc:accounts)
 			if(acc!=null)
 				if(acc.getBalance()==amount)*/
-		Iterator<Account> iterator = accounts.iterator();
-		while(iterator.hasNext())
+		List<Account> acc = new ArrayList<Account>();
+		for(Account a:App.accounts)
 		{
-			Account a = iterator.next();
-			if(a.getBalance()==amount)
+			if(a!=null)
 			{
-				return accounts;
+				if(a.getBalance()>=amount)
+			    {
+				 acc.add(a);
+			    }
 			}
-		}
-		return null;
-		
+		 }
+		if(acc.size()==0)
+			acc=null;
+		return acc;
 	}
 	
-  }
+	public static void main(String args[]){
+		App a = new App();
+		System.out.println(accounts);
+		App.accounts.add(new Account (1,"acc1",101.11));		
+		App.accounts.add(new Account (3,"acc3",303.33));
+		App.accounts.add(new Account (4,"acc4",404.43));
+		App.accounts.add(new Account (5,"acc5",505.55));	
+		if(accounts.contains(a.getAccountDetailsByBalance(900.00)))
+			System.out.println("True");
+		else
+		 System.out.println("False");
+     	}
+}
+	
+  
