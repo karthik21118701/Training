@@ -4,6 +4,13 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import org.junit.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.wipro.bank.entity.Account;
+
 /**
  * Unit test for simple App.
  */
@@ -15,6 +22,11 @@ public class AppTest
      *
      * @param testName name of the test case
      */
+	
+	@Before
+	public void setUp() throws Exception {
+		
+	}
     public AppTest( String testName )
     {
         super( testName );
