@@ -7,7 +7,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import com.wipro.bank.entity.Account;
+
+import com.wipro.bank.entity.*;
 
 /**
  * Unit test for simple App.
